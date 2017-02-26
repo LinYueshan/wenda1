@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+    $!{name}
+
+    colors: $!{colors}
+    #foreach($color in $colors)
+        this is color $!{foreach.index}: $color $!{foreach.count}
+    #end
+
+    #foreach($kv in $map.entrySet())
+        ${kv.getKey()} : $kv.value
+    #end
+
+    User:$!{user.name}
+
+    #set($title="hellll0")
+    Title: $!{title}
+
+    Parse: #parse("header.html")
+    Include: #include("header.html")
+
+    #macro (render_color, $index, $color)
+        Macro function $index, $color
+    #end
+
+    #foreach($color in $colors)
+        #render_color($foreach.index, $color)
+    #end
+    #foreach()
+    #end
+
+
+
+
+</pre>
+</body>
+</html>
